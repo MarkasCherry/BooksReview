@@ -1,11 +1,15 @@
 package mainPackage;
 
+import java.util.Scanner;
+
 public class Book {
+	
+	Scanner in = new Scanner(System.in);
 
 	//Parameters
 	private String author;	//Author's full name
 	private String title;	//Title of the book
-	private int date;	//Date of the book release
+	private int date;	//Date of the book release (ddmmyy)
 	private int rating;		//rating of the book
 	
 	//Constructor
@@ -52,6 +56,21 @@ public class Book {
 	
 	public int getRating() {
 		return rating;
+	}
+	
+	//Inputing (later I will add database)
+	public void ask() {
+		System.out.println("Enter book's author: ");
+		setAuthor(in.nextLine());
+		
+		System.out.println("Enter the name of a book: ");
+		setTitle(in.nextLine());
+		
+		System.out.println("Enter realese date (ddmmyyyy): ");
+		setDate(in.nextInt());
+		
+		System.out.println("Enter your rating: ");
+		setRating(in.nextInt());
 	}
 	
 	//toString method
