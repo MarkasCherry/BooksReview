@@ -1,0 +1,61 @@
+package mainPackage;
+
+public class Book {
+
+	//Parameters
+	private String author;	//Author's full name
+	private String title;	//Title of the book
+	private int date;	//Date of the book release
+	private int rating;		//rating of the book
+	
+	//Constructor
+	Book() {
+		set("?Author name?", "?book title?", -1, -1);
+	}
+	
+	//Setters
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public void setDate(int date) {
+		this.date = date;
+	}
+	
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	public void set(String author, String title, int date, int rating) {
+		setAuthor(author);
+		setTitle(title);
+		setDate(date);
+		setRating(rating);
+	}
+	
+	//Getters
+	public String getAuthor() {
+		return author;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public int getDate() {
+		return date;
+	}
+	
+	public int getRating() {
+		return rating;
+	}
+	
+	//toString method
+	public String toString() {
+		return author + " " + title + " " + date + " " + rating;
+	}
+}
