@@ -60,16 +60,16 @@ public class Book {
 	
 	//Inputing (later I will add database)
 	public void ask() {
-		System.out.println("Enter book's author: ");
+		System.out.print("Enter book's author: ");
 		setAuthor(in.nextLine());
 		
-		System.out.println("Enter the name of a book: ");
+		System.out.print("Enter the name of a book: ");
 		setTitle(in.nextLine());
 		
-		System.out.println("Enter realese date (ddmmyyyy): ");
+		System.out.print("Enter realese date (ddmmyyyy): ");
 		setDate(in.nextInt());
 		
-		System.out.println("Enter your rating: ");
+		System.out.print("Enter your rating: ");
 		setRating(in.nextInt());
 	}
 	
