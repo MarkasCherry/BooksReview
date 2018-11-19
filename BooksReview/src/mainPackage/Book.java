@@ -9,12 +9,12 @@ public class Book {
 	//Parameters
 	private String author;	//Author's full name
 	private String title;	//Title of the book
-	private int date;	//Date of the book release (ddmmyy)
+	private String date;	//Date of the book release
 	private int rating;		//rating of the book
 	
 	//Constructor
 	Book() {
-		set("?Author name?", "?book title?", -1, -1);
+		set("?Author name?", "?book title?", "?date?", -1);
 	}
 	
 	//Setters
@@ -26,7 +26,7 @@ public class Book {
 		this.title = title;
 	}
 	
-	public void setDate(int date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
@@ -34,7 +34,7 @@ public class Book {
 		this.rating = rating;
 	}
 	
-	public void set(String author, String title, int date, int rating) {
+	public void set(String author, String title, String date, int rating) {
 		setAuthor(author);
 		setTitle(title);
 		setDate(date);
@@ -50,7 +50,7 @@ public class Book {
 		return title;
 	}
 	
-	public int getDate() {
+	public String getDate() {
 		return date;
 	}
 	
@@ -60,17 +60,23 @@ public class Book {
 	
 	//Inputing (later I will add database)
 	public void ask() {
-		System.out.print("Enter book's author: ");
+		System.out.print("\nEnter book's author: ");
 		setAuthor(in.nextLine());
 		
 		System.out.print("Enter the name of a book: ");
-		setTitle(in.nextLine());
+		setTitle(in.nextLine().toUpperCase());
 		
-		System.out.print("Enter realese date (ddmmyyyy): ");
-		setDate(in.nextInt());
+		System.out.print("Enter realese date (dd/mm/yyyy): ");
+		setDate(in.next());
 		
 		System.out.print("Enter your rating: ");
 		setRating(in.nextInt());
+	}
+	
+	
+	//Printing out
+	public void print() {
+		System.out.println(author + " \"" + title + "\" | Release date: " + date + " | | Rating: " + rating + "/10 |");
 	}
 	
 	//toString method
