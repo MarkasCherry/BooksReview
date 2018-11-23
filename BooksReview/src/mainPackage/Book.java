@@ -58,17 +58,30 @@ public class Book {
 		return rating;
 	}
 	
-	//Inputing (later I will add database)
+	//Inputing
 	public void ask() {
+		askAuthor();
+		askTitle();
+		askDate();
+		askRating()	;
+	}
+	
+	public void askAuthor() {
 		System.out.print("\nEnter book's author: ");
 		setAuthor(in.nextLine());
-		
+	}
+	
+	public void askTitle() {
 		System.out.print("Enter the name of a book: ");
 		setTitle(in.nextLine().toUpperCase());
-		
+	}
+	
+	public void askDate() {
 		System.out.print("Enter realese date (dd/mm/yyyy): ");
 		setDate(in.next());
-		
+	}
+	
+	public void askRating() {
 		System.out.print("Enter your rating: ");
 		setRating(in.nextInt());
 	}

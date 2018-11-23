@@ -34,8 +34,13 @@ public class BooksList {
 	//Print ArrayList
 	public void printBooks() {
 		for(int i = 0; i < books.size(); i++) {
+			System.out.print((i+1) + " book: ");
 			books.get(i).print();
 		}
+	}
+	
+	public Book get(int index) {
+		return books.get(index);
 	}
 	
 	//Get ArrayList size
