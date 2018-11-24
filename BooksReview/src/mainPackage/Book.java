@@ -10,7 +10,7 @@ public class Book {
 	private String author;	//Author's full name
 	private String title;	//Title of the book
 	private String date;	//Date of the book release
-	private int rating;		//rating of the book
+	private double rating;	//rating of the book
 	
 	//Constructor
 	Book() {
@@ -30,11 +30,11 @@ public class Book {
 		this.date = date;
 	}
 	
-	public void setRating(int rating) {
+	public void setRating(double rating) {
 		this.rating = rating;
 	}
 	
-	public void set(String author, String title, String date, int rating) {
+	public void set(String author, String title, String date, double rating) {
 		setAuthor(author);
 		setTitle(title);
 		setDate(date);
@@ -54,7 +54,7 @@ public class Book {
 		return date;
 	}
 	
-	public int getRating() {
+	public double getRating() {
 		return rating;
 	}
 	
@@ -83,7 +83,7 @@ public class Book {
 	
 	public void askRating() {
 		System.out.print("Enter your rating: ");
-		setRating(in.nextInt());
+		setRating(in.nextDouble());
 	}
 	
 	
