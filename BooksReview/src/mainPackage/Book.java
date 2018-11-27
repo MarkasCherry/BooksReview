@@ -84,6 +84,7 @@ public class Book {
 	public void askRating() {
 		System.out.print("Enter your rating: ");
 		setRating(in.nextDouble());
+		in.nextLine();
 	}
 	
 	

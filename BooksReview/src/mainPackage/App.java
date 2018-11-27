@@ -13,17 +13,20 @@ public class App {
 	public static void removeBook(BooksList books) {
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println("Choose one from below how to remove: \n1) Enter list No.\n2) Enter name of the book\nStop) Cancel removing");
-		String x = in.next();
+		System.out.println("Choose one from below how to remove: \n1) Enter list No. (removes spacific review)"
+				+ "\n2) Enter name of the book (removes all reviews of this book)"
+				+ "\n3) Removes all existing reviews\nStop) Cancel removing");
+		String cmd = in.next();
 		
-		switch(x) {
+		switch(cmd) {
 		case "1":
 			books.printBooks();	
 			System.out.print("\nEnter list number: ");
 			int index = in.nextInt();
+			in.nextLine();
 			
 			if(index <= books.getSize() && index > 0) {
-				books.remove(index - 1);
+				books.removeBook(index - 1);
 				System.out.println("The book has been removed!");
 			}
 			else {
@@ -36,8 +39,13 @@ public class App {
 			System.out.print("Enter name of the book: ");
 			String name = in.nextLine();
 			
-			books.remove(name.toUpperCase());
+			books.removeBook(name.toUpperCase());
 			System.out.println("All reviews of this book has been remove!");
+			break;
+			
+		case "3":
+			books.removeBook();
+			System.out.println("All reviews have been removed!");
 			break;
 			
 		default:
@@ -51,12 +59,13 @@ public class App {
 		books.printBooks();	
 		System.out.println("\nEnter list No. of the book:	");
 		int index = in.nextInt();
+		in.nextLine();
 		
 		if(index <= books.getSize() && index > 0) {
 			System.out.println("Choose what part of the book you want to edit:\n1) Author\n2) Title\n3) Release year\n4) Rating\nStop) Cancel editing");
-			String x = in.next();
+			String cmd = in.next();
 			
-			switch(x) {
+			switch(cmd) {
 			case "1":
 				books.get(index - 1).askAuthor();
 				break;
@@ -74,7 +83,7 @@ public class App {
 				break;
 				
 			default:
-				System.out.println("The editing of book was canceled.");
+				System.out.println("The editing of book was cancelled.");
 				return;
 			}
 			
@@ -82,6 +91,42 @@ public class App {
 		}
 		else {
 			System.out.println("The book does not exist");
+		}
+		
+	}
+	
+	public static void sort(BooksList books) {
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Choose one from below:\n1) Sort by authors\n2) Sort by title\n3) Sort by date\n4) Sort by rating"
+				+ "\nStop) Cancel sorting");
+		
+		String cmd = in.next();
+		
+		switch(cmd) {
+		case "1":
+			System.out.println("Reviews was sorted by authors!");
+			//call method
+			break;
+			
+		case "2":
+			System.out.println("Reviews was sorted by titles!");
+			books.sortByTitle();
+			break;
+			
+		case "3":
+			System.out.println("Reviews was sorted by dates!");
+			books.sortByDate();
+			break;
+			
+		case "4":
+			System.out.println("Reviews was sorted by ratings!");
+			books.sortByRating();
+			break;
+			
+		default:
+			System.out.println("Sorting was cancelled.");
 		}
 		
 	}
@@ -97,7 +142,7 @@ public class App {
 		
 		boolean app_on = true;
 		while(app_on) {
-			System.out.println("\n\t Review\t Print\t Remove\t Edit\t Save\t Clear\t Quit");
+			System.out.println("\n\t Review\t Print\t Remove\t Edit\t Sort\t Save\t Clear\t Quit");
 			String cmd = in.next();
 			
 			switch(cmd.toUpperCase()) {
@@ -132,6 +177,11 @@ public class App {
 				else {
 					editBook(books);			
 				}
+				break;
+				
+			case "SORT":
+				System.out.println("SORTING NOT WORKING");	//reminder for me
+				sort(books);
 				break;
 				
 			case "CLEAR":
