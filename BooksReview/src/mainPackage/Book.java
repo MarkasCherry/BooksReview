@@ -9,32 +9,39 @@ public class Book {
 	//Parameters
 	private String author;	//Author's full name
 	private String title;	//Title of the book
-	private String date;	//Date of the book release
+	private int date;		//book's release year
 	private double rating;	//rating of the book
 	
-	//Constructor
+	//Constructors
+	Book(String author, String title, int date, int rating) {
+		setAuthor(author);
+		setTitle(title);
+		setDate(date);
+		setRating(rating);
+	}
+	
 	Book() {
-		set("?Author name?", "?book title?", "?date?", -1);
+		set("?Author name?", "?book title?", -1, -1);
 	}
 	
 	//Setters
-	public void setAuthor(String author) {
+	public void setAuthor(String author) {	//sets author
 		this.author = author;
 	}
 	
-	public void setTitle(String title) {
+	public void setTitle(String title) {	//sets title
 		this.title = title;
 	}
 	
-	public void setDate(String date) {
+	public void setDate(int date) {			//sets release year
 		this.date = date;
 	}
 	
-	public void setRating(double rating) {
+	public void setRating(double rating) {	//sets rating
 		this.rating = rating;
 	}
 	
-	public void set(String author, String title, String date, double rating) {
+	public void set(String author, String title, int date, double rating) {		//sets all parameters
 		setAuthor(author);
 		setTitle(title);
 		setDate(date);
@@ -42,55 +49,57 @@ public class Book {
 	}
 	
 	//Getters
-	public String getAuthor() {
+	public String getAuthor() {		//gets author
 		return author;
 	}
 	
-	public String getTitle() {
+	public String getTitle() {		//gets title
 		return title;
 	}
 	
-	public String getDate() {
+	public int getDate() {			//gets release year
 		return date;
 	}
 	
-	public double getRating() {
+	public double getRating() {		//gets rating
 		return rating;
 	}
 	
 	//Inputing
-	public void ask() {
+	public void ask() {				//asks to input all elements
 		askAuthor();
 		askTitle();
 		askDate();
 		askRating()	;
 	}
 	
-	public void askAuthor() {
+	public void askAuthor() {		//asks to input author
 		System.out.print("\nEnter book's author: ");
 		setAuthor(in.nextLine());
 	}
 	
-	public void askTitle() {
+	public void askTitle() {		//asks to input title
 		System.out.print("Enter the name of a book: ");
 		setTitle(in.nextLine().toUpperCase());
 	}
 	
-	public void askDate() {
-		System.out.print("Enter realese date (dd/mm/yyyy): ");
-		setDate(in.next());
+	public void askDate() {			//asks to input release year
+		System.out.print("Enter release year: ");
+		setDate(in.nextInt());
+		in.nextLine();
+
 	}
 	
-	public void askRating() {
+	public void askRating() {		//asks to input rating
 		System.out.print("Enter your rating: ");
 		setRating(in.nextDouble());
 		in.nextLine();
 	}
 	
-	
 	//Printing out
-	public void print() {
-		System.out.println(author + " \"" + title + "\" | Release date: " + date + " | | Rating: " + rating + "/10 |");
+	public void print() {		//prints out reviews list in a table
+		System.out.printf("%-31s %1s %-29s %1s %10d %7s %4.1f %4s %2s", author, "|      ", title, "|", date, "|", rating, "/ 10", "|");
+		System.out.println();
 	}
 	
 	//toString method
